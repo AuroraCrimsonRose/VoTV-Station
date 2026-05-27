@@ -1,0 +1,16 @@
+[Unit]
+Description=VoTV Station Manager
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/root/VoTV-Station/station
+ExecStart=/usr/bin/python3 /root/VoTV-Station/station/manager.py
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
